@@ -8,5 +8,10 @@
         <p><strong>Categoría:</strong> {{ $curso->categoria }}</p>
         <a href="{{ route('cursos.edit', $curso->id) }}" class="">Editar Curso</a>
         <a href="{{ route('cursos.index') }}" class="">Volver a la lista de cursos</a>
+        <form action="{{ route('cursos.destroy', $curso) }}" method="POST" class="d-inline">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="">Eliminar Curso</button>
+        </form>
     </div>
 @endsection

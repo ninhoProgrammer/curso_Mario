@@ -18,6 +18,7 @@ class CursoFactory extends Factory
     {
         return [
             'nombre' => $this->faker->word(),
+            'slug' => $this->faker->slug(),
             'descripcion' => $this->faker->sentence(),
             'categoria' => $this->faker->randomElement(['Desarollo web', 'desarrollo movil']) // Precio entre 100 y 1000
             

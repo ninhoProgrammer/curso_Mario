@@ -11,7 +11,7 @@ class StoreCurso extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,27 @@ class StoreCurso extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'nombre' => 'required|string|max:255',
+            'descripcion' => 'required|string|max:1000',
+            'categoria' => 'required|string|max:255',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'nombre.required' => 'El nombre del curso es obligatorio.',
+            'descripcion.required' => 'La descripción del curso es obligatoria.',
+            'categoria.required' => 'La categoría del curso es obligatoria.',
+        ];
+    }
+    public function attributes()
+    {
+        return [
+            'nombre' => 'nombre',
+            'descripcion' => 'descripción',
+            'categoria' => 'categoría',
+        ];
+    }
+    
 }
