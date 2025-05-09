@@ -15,8 +15,15 @@
             @enderror
         </div>
         <div class="mb-3">
+            <label for="slug" class="form-label">Slug</label>
+            <input type="text" class="form-control" id="slug" name="slug" value="{{old('slug')}}" required>  
+            @error('slug')
+                <div class="alert ">{{ $message }}</div>
+            @enderror   
+        </div>
+        <div class="mb-3">
             <label for="descripcion" class="form-label">Descripción</label>
-            <textarea class="form-control" id="descripcion" name="descripcion" rows="3"  required>{{old('descripcion')}}</textarea>
+            <textarea class="form-control" id="descripcion" name="descripcion" rows="5" required>{{old('descripcion')}}</textarea>
             @error('descripcion')
                 <div class="alert ">{{ $message }}</div>
             @enderror

@@ -46,6 +46,7 @@ class CursoController extends Controller
     {
         $request->validate([
             'nombre' => 'required|string|max:255',
+            'slug' => 'required|string|max:255|unique:cursos,slug,' . $curso->id,
             'descripcion' => 'required|string|max:1000',
             'categoria' => 'required|string|max:255',
         ]);

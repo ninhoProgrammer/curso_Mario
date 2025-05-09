@@ -23,6 +23,8 @@ class StoreCurso extends FormRequest
     {
         return [
             'nombre' => 'required|string|max:255',
+            'slug' => 'required|string|max:255|unique:cursos',
+            // 'slug' => 'required|string|max:255|unique:cursos,slug,' . $this->curso->id,
             'descripcion' => 'required|string|max:1000',
             'categoria' => 'required|string|max:255',
         ];
@@ -32,6 +34,8 @@ class StoreCurso extends FormRequest
     {
         return [
             'nombre.required' => 'El nombre del curso es obligatorio.',
+            'slug.required' => 'El slug del curso es obligatorio.',
+            'slug.unique' => 'El slug del curso ya existe.',
             'descripcion.required' => 'La descripción del curso es obligatoria.',
             'categoria.required' => 'La categoría del curso es obligatoria.',
         ];
@@ -40,6 +44,7 @@ class StoreCurso extends FormRequest
     {
         return [
             'nombre' => 'nombre',
+            'slug' => 'slug',
             'descripcion' => 'descripción',
             'categoria' => 'categoría',
         ];
